@@ -1,6 +1,6 @@
 {
   "name": "blurt-tx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create, sign, and broadcast transactions on Blurt blockchain",
   "main": "index.js",
   "scripts": {
