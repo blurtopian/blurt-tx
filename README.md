@@ -1,6 +1,6 @@
-# hive-tx-js
+# blurt-tx
 
-Lightweight and complete JavaScript library for using Hive blockchain in Javascript environments such as Web or NodeJS.
+Lightweight and complete JavaScript library for using Blurt blockchain in Javascript environments such as Web or NodeJS.
 
 #### Why this?
 
@@ -13,7 +13,7 @@ This library is a solution to such cases when official libraries are not working
 ## Installation
 
 ```
-npm install hive-tx --save
+npm install blurt-tx --save
 ```
 
 ## Usage
@@ -27,15 +27,15 @@ npm install hive-tx --save
 or
 
 ```
-<script src="dist/hive-tx.min.js"></script>
+<script src="dist/blurt-tx.min.js"></script>
 ```
 
-`hiveTx` is available after including /dist/hive-tx.min.js file in your html file.
+`blurtTx` is available after including /dist/blurt-tx.min.js file in your html file.
 
 **NodeJS:**
 
 ```
-const hiveTx = require('hive-tx')
+const blurtTx = require('blurt-tx')
 ```
 
 ## Usage examples
@@ -46,21 +46,21 @@ Set or get configs:
 
 ```
 // default values already defined in config.js
-hiveTx.config.node = "https://api.hive.blog"
-hiveTx.config.chain_id = "beeab0de00000000000000000000000000000000000000000000000000000000"
-hiveTx.config.address_prefix = "STM"
+blurtTx.config.node = 'https://rpc.blurt.world'
+blurtTx.config.chain_id = 'cd8d90f29ae273abec3eaa7731e25934c63eb654d55080caff2ebb7f5df6381f'
+blurtTx.config.address_prefix = 'BLT'
 ```
 
 **Create transaction:**
 
 ```
-const tx = new hiveTx.Transaction(trx?)
+const tx = new blurtTx.Transaction(trx?)
 ```
 
 or
 
 ```
-const tx = new hiveTx.Transaction()
+const tx = new blurtTx.Transaction()
 tx.create(operations, expiration = 60)
 ```
 
@@ -79,7 +79,7 @@ const operations = [
   ]
 ]
 
-const tx = new hiveTx.Transaction()
+const tx = new blurtTx.Transaction()
 tx.create(operations).then(() => console.log(tx.transaction))
 ```
 
@@ -87,7 +87,7 @@ tx.create(operations).then(() => console.log(tx.transaction))
 
 ```
 const myKey = '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg'
-const privateKey = hiveTx.PrivateKey.from(myKey)
+const privateKey = blurtTx.PrivateKey.from(myKey)
 
 tx.sign(privateKey)
 console.log(tx.signedTransaction)
@@ -102,13 +102,13 @@ tx.broadcast().then(res => console.log(res))
 **Make node call:**
 
 ```
-hiveTx.call(method, params = [], timeout = 10): Promise
+blurtTx.call(method, params = [], timeout = 10): Promise
 ```
 
 Example:
 
 ```
-hiveTx.call('condenser_api.get_accounts', [['mahdiyari']]).then(res => console.log(res))
+blurtTx.call('condenser_api.get_accounts', [['mahdiyari']]).then(res => console.log(res))
 ```
 
 ## License

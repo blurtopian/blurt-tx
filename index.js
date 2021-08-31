@@ -7,7 +7,7 @@ const call = require('./helpers/call')
 const config = require('./config')
 const updateOperations = () => {
   console.log(
-    '[Hive-tx] Warning: You can safely remove `.updateOperations()` from you app. Deprecated.'
+    '[Blurt-tx] Warning: You can safely remove `.updateOperations()` from you app. Deprecated.'
   )
 }
 
