@@ -1,22 +1,22 @@
 {
-  "name": "hive-tx",
-  "version": "3.2.0",
-  "description": "Create, sign, and broadcast transactions on Hive blockchain",
+  "name": "blurt-tx",
+  "version": "1.0.0",
+  "description": "Create, sign, and broadcast transactions on Blurt blockchain",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-browser": "browserify index.js -p tinyify --standalone hiveTx > dist/hive-tx.min.js"
+    "build-browser": "browserify index.js -p tinyify --standalone blurtTx > dist/blurt-tx.min.js"
   },
   "keywords": [
-    "hive",
+    "blurt",
     "tx",
     "transaction",
     "sign",
     "broadcast",
     "blockchain",
-    "hive-tx"
+    "blurt-tx"
   ],
-  "author": "Mahdi Yari",
+  "author": "East Mael",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
@@ -25,10 +25,10 @@
     "crypto-js": "^3.1.9-1",
     "secp256k1": "^3.8.0"
   },
-  "homepage": "https://github.com/mahdiyari/hive-tx-js",
+  "homepage": "https://gitlab.com/blurt/openblurt/blurtopian/blurt-tx",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mahdiyari/hive-tx-js.git"
+    "url": "https://gitlab.com/blurt/openblurt/blurtopian/blurt-tx.git"
   },
   "devDependencies": {
     "browserify": "^16.5.0",

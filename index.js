@@ -11,7 +11,7 @@ const updateOperations = () => {
   )
 }
 
-/** Transaction for Hive blockchain */
+/** Transaction for Blurt blockchain */
 class Transaction {
   /** A transaction object could be passed or created later
    * @param {{}} trx Object of transaction - Optional

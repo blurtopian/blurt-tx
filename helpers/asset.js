@@ -5,7 +5,7 @@ class Asset {
   static fromString (string, expectedSymbol = null) {
     const [amountString, symbol] = string.split(' ')
     if (
-      ['STEEM', 'VESTS', 'SBD', 'TESTS', 'TBD', 'HIVE', 'HBD'].indexOf(
+      ['STEEM', 'VESTS', 'SBD', 'TESTS', 'TBD', 'HIVE', 'HBD', 'BLURT'].indexOf(
         symbol
       ) === -1
     ) {
@@ -61,6 +61,7 @@ class Asset {
       case 'SBD':
       case 'HBD':
       case 'HIVE':
+      case 'BLURT':
         return 3
       case 'VESTS':
         return 6
