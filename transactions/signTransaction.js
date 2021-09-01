@@ -29,6 +29,7 @@ const signTransaction = (transaction, keys) => {
 
 /** Serialize transaction */
 const transactionDigest = (transaction, chainId = CHAIN_ID) => {
+  console.log('transactionDigest', transaction)
   const buffer = new ByteBuffer(
     ByteBuffer.DEFAULT_CAPACITY,
     ByteBuffer.LITTLE_ENDIAN
@@ -36,10 +37,13 @@ const transactionDigest = (transaction, chainId = CHAIN_ID) => {
   try {
     serializer.Transaction(buffer, transaction)
   } catch (cause) {
+    console.log('transactionDigest ', cause)
     throw new Error('Unable to serialize transaction')
   }
   buffer.flip()
-  const transactionData = Buffer.from(buffer.toBuffer())
+  const transactionData = Buffer.from(buffer.toBuffer());
+
+  console.log('transactionData', transactionData)
   const txId = crypto.sha256(transactionData).toString('hex').slice(0, 40)
   const digest = crypto.sha256(Buffer.concat([chainId, transactionData]))
   return { digest, txId }

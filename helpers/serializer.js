@@ -125,6 +125,7 @@ const ArraySerializer = (itemSerializer) => {
 }
 
 const ObjectSerializer = (keySerializers) => {
+  console.log('keySerializers', keySerializers)
   return (buffer, data) => {
     for (const [key, serializer] of keySerializers) {
       try {
@@ -544,7 +545,42 @@ OperationSerializers.remove_proposal = OperationDataSerializer(46, [
   ['extensions', ArraySerializer(VoidSerializer)]
 ])
 
+const ProposalUpdateSerializer = ObjectSerializer([
+  ['end_date', DateSerializer]
+])
+
+OperationSerializers.update_proposal = OperationDataSerializer(47, [
+  ['proposal_id', UInt64Serializer],
+  ['creator', StringSerializer],
+  ['daily_pay', AssetSerializer],
+  ['subject', StringSerializer],
+  ['permlink', StringSerializer],
+  [
+    'extensions',
+    ArraySerializer(
+      StaticVariantSerializer([VoidSerializer, ProposalUpdateSerializer])
+    )
+  ]
+])
+
+OperationSerializers.collateralized_convert = OperationDataSerializer(48, [
+  ['owner', StringSerializer],
+  ['requestid', UInt32Serializer],
+  ['amount', AssetSerializer]
+])
+
+OperationSerializers.recurrent_transfer = OperationDataSerializer(49, [
+  ['from', StringSerializer],
+  ['to', StringSerializer],
+  ['amount', AssetSerializer],
+  ['memo', StringSerializer],
+  ['recurrence', UInt16Serializer],
+  ['executions', UInt16Serializer],
+  ['extensions', ArraySerializer(VoidSerializer)]
+])
+
 const OperationSerializer = (buffer, operation) => {
+  console.log('operation', operation)
   const serializer = OperationSerializers[operation[0]]
   if (!serializer) {
     throw new Error(`No serializer for operation: ${operation[0]}`)

@@ -114,5 +114,3 @@ blurtTx.call('condenser_api.get_accounts', [['mahdiyari']]).then(res => console.
 ## License
 
 MIT
-
-Note: In building some parts we used functions from [dsteem](https://github.com/jnordberg/dsteem) library
