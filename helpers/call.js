@@ -8,6 +8,12 @@ const config = require('../config')
  * @param {Number}timeout - optional - default 10 seconds
  */
 const call = async (method, params = [], timeout = 10) => {
+  console.log('call data', JSON.stringify({
+    jsonrpc: '2.0',
+    method,
+    params,
+    id: 0
+  }));
   let resolved = 0
   return new Promise((resolve, reject) => {
     axios
@@ -17,7 +23,7 @@ const call = async (method, params = [], timeout = 10) => {
           jsonrpc: '2.0',
           method,
           params,
-          id: 1
+          id: 0
         })
       )
       .then(res => {
