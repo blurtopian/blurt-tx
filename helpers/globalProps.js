@@ -6,7 +6,8 @@ const getGlobalProps = async () => {
   if (!res) {
     throw new Error("Couldn't resolve global properties")
   }
-  if (res && (!res.id || !res.result)) {
+  console.log('getGlobalProps res', res)
+  if (res && (res.id != 0 || !res.result)) {
     throw new Error('Bad response @ global props')
   }
   return res.result
