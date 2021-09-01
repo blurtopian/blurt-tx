@@ -1,11 +1,12 @@
 {
   "name": "blurt-tx",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Create, sign, and broadcast transactions on Blurt blockchain",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-browser": "browserify index.js -p tinyify --standalone blurtTx > dist/blurt-tx.min.js"
+    "build-browser": "browserify index.js -p tinyify --standalone blurtTx > dist/blurt-tx.min.js",
+    "publish-tx": "npm run build-browser && npm publish"
   },
   "keywords": [
     "blurt",
