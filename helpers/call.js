@@ -19,12 +19,12 @@ const call = async (method, params = [], timeout = 10) => {
     axios
       .post(
         config.node,
-        JSON.stringify({
-          jsonrpc: '2.0',
-          method,
-          params,
-          id: 0
-        })
+        {
+          "jsonrpc": '2.0',
+          "method": method,
+          "params": params,
+          "id": 0
+        }
       )
       .then(res => {
         if (res && res.status === 200) {

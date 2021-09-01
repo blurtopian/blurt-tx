@@ -125,7 +125,6 @@ const ArraySerializer = (itemSerializer) => {
 }
 
 const ObjectSerializer = (keySerializers) => {
-  console.log('keySerializers', keySerializers)
   return (buffer, data) => {
     for (const [key, serializer] of keySerializers) {
       try {
@@ -580,7 +579,6 @@ OperationSerializers.recurrent_transfer = OperationDataSerializer(49, [
 ])
 
 const OperationSerializer = (buffer, operation) => {
-  console.log('operation', operation)
   const serializer = OperationSerializers[operation[0]]
   if (!serializer) {
     throw new Error(`No serializer for operation: ${operation[0]}`)
