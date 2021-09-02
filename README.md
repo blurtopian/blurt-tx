@@ -21,12 +21,6 @@ npm install blurt-tx --save
 **Browser:**
 
 ```
-<script src="https://cdn.jsdelivr.net/npm/hive-tx/dist/hive-tx.min.js"></script>
-```
-
-or
-
-```
 <script src="dist/blurt-tx.min.js"></script>
 ```
 
@@ -108,7 +102,7 @@ blurtTx.call(method, params = [], timeout = 10): Promise
 Example:
 
 ```
-blurtTx.call('condenser_api.get_accounts', [['mahdiyari']]).then(res => console.log(res))
+blurtTx.call('condenser_api.get_accounts', [['eastmael']]).then(res => console.log(res))
 ```
 
 ## License
