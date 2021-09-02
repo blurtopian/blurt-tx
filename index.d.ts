@@ -47,6 +47,3 @@ export const config: {
 }
 
 export function call(method: string, params?: any[], timeout?: number): any
-
-/** Don't need anymore - deprecated */
-export function updateOperations(): void

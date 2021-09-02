@@ -5,11 +5,6 @@ const broadcastTransactionNoResult = require('./transactions/broadcastTransactio
 const PrivateKey = require('./helpers/PrivateKey')
 const call = require('./helpers/call')
 const config = require('./config')
-const updateOperations = () => {
-  console.log(
-    '[Blurt-tx] Warning: You can safely remove `.updateOperations()` from you app. Deprecated.'
-  )
-}
 
 /** Transaction for Blurt blockchain */
 class Transaction {
@@ -85,4 +80,4 @@ class Transaction {
   }
 }
 
-module.exports = { Transaction, PrivateKey, call, config, updateOperations }
+module.exports = { Transaction, PrivateKey, call, config }
