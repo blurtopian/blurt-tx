@@ -59,7 +59,7 @@ class Transaction {
       return result
     }
     return {
-      id: 1,
+      id: 0,
       jsonrpc: '2.0',
       result: { tx_id: this.txId, status: 'unkown' }
     }
@@ -78,7 +78,7 @@ class Transaction {
     }
     await broadcastTransactionNoResult(this.signedTransaction)
     return {
-      id: 1,
+      id: 0,
       jsonrpc: '2.0',
       result: { tx_id: this.txId, status: 'unkown' }
     } // result
