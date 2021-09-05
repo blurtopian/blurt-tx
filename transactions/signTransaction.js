@@ -36,7 +36,7 @@ const transactionDigest = (transaction, chainId = CHAIN_ID) => {
   try {
     serializer.Transaction(buffer, transaction)
   } catch (cause) {
-    throw new Error('Unable to serialize transaction')
+    throw new Error(`Unable to serialize transaction: ${transaction}`)
   }
   buffer.flip()
   const transactionData = Buffer.from(buffer.toBuffer());
