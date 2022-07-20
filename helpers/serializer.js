@@ -242,8 +242,7 @@ OperationSerializers.claim_account = OperationDataSerializer(15, [
 
 OperationSerializers.claim_reward_balance = OperationDataSerializer(31, [
   ['account', StringSerializer],
-  ['reward_hive', AssetSerializer],
-  ['reward_hbd', AssetSerializer],
+  ['reward_blurt', AssetSerializer],
   ['reward_vests', AssetSerializer]
 ])
 
