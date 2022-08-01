@@ -446,6 +446,48 @@ OperationSerializers.witness_update = OperationDataSerializer(7, [
   ['fee', AssetSerializer]
 ])
 
+OperationSerializers.create_proposal = OperationDataSerializer(44, [
+  ['creator', StringSerializer],
+  ['receiver', StringSerializer],
+  ['start_date', DateSerializer],
+  ['end_date', DateSerializer],
+  ['daily_pay', AssetSerializer],
+  ['subject', StringSerializer],
+  ['permlink', StringSerializer],
+  ['extensions', ArraySerializer(VoidSerializer)]
+])
+
+OperationSerializers.update_proposal_votes = OperationDataSerializer(45, [
+  ['voter', StringSerializer],
+  ['proposal_ids', ArraySerializer(Int64Serializer)],
+  ['approve', BooleanSerializer],
+  ['extensions', ArraySerializer(VoidSerializer)]
+])
+
+OperationSerializers.remove_proposal = OperationDataSerializer(46, [
+  ['proposal_owner', StringSerializer],
+  ['proposal_ids', ArraySerializer(Int64Serializer)],
+  ['extensions', ArraySerializer(VoidSerializer)]
+])
+
+const ProposalUpdateSerializer = ObjectSerializer([
+  ['end_date', DateSerializer]
+])
+
+OperationSerializers.update_proposal = OperationDataSerializer(47, [
+  ['proposal_id', UInt64Serializer],
+  ['creator', StringSerializer],
+  ['daily_pay', AssetSerializer],
+  ['subject', StringSerializer],
+  ['permlink', StringSerializer],
+  [
+    'extensions',
+    ArraySerializer(
+      StaticVariantSerializer([VoidSerializer, ProposalUpdateSerializer])
+    )
+  ]
+])
+
 const OperationSerializer = (buffer, operation) => {
   const serializer = OperationSerializers[operation[0]]
   if (!serializer) {
